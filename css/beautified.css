@@ -766,7 +766,7 @@ body {
     text-transform: uppercase;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    margin-bottom: 6rem
+    margin-top: 8rem;
 }
 
 .heading-primary--main {
@@ -1855,7 +1855,7 @@ only screen and (hover: none) {
 }
 
 .header__container{
-    background-color:#ebfece ;
+    background-color:#ebfecec0 ;
     background-size: cover;
     
     padding: 10px;
