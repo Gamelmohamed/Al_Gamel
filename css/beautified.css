@@ -1854,6 +1854,30 @@ only screen and (hover: none) {
     width: calc(3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem)
 }
 
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 50px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+    transition: all 0.3s ease;
+    
+    
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
 .header__container{
     background-color:#ebfecec0 ;
     background-size: cover;
