@@ -370,11 +370,154 @@
         });
     }
 
+    // Visual Tour & Harvest Gallery Controls
+    function initGallery() {
+        const galleryGrid = document.getElementById("galleryGrid");
+        const lightbox = document.getElementById("galleryLightbox");
+        if (!galleryGrid || !lightbox) return;
+
+        const filterBtns = document.querySelectorAll(".gallery-filter-btn");
+        const cards = Array.from(galleryGrid.querySelectorAll(".gallery-card"));
+
+        const lightboxImg = document.getElementById("lightboxImg");
+        const lightboxBadge = document.getElementById("lightboxBadge");
+        const lightboxTitle = document.getElementById("lightboxTitle");
+        const lightboxDesc = document.getElementById("lightboxDesc");
+        const lightboxCounter = document.getElementById("lightboxCounter");
+        const lightboxClose = document.getElementById("lightboxClose");
+        const lightboxPrev = document.getElementById("lightboxPrev");
+        const lightboxNext = document.getElementById("lightboxNext");
+        const lightboxBackdrop = document.getElementById("lightboxBackdrop");
+
+        let currentFilteredCards = [...cards];
+        let activeIndex = 0;
+
+        // 1. Category Filtering
+        filterBtns.forEach((btn) => {
+            btn.addEventListener("click", function () {
+                filterBtns.forEach((b) => {
+                    b.classList.remove("active");
+                    b.setAttribute("aria-selected", "false");
+                });
+                this.classList.add("active");
+                this.setAttribute("aria-selected", "true");
+
+                const filter = this.getAttribute("data-filter");
+
+                cards.forEach((card) => {
+                    const category = card.getAttribute("data-category");
+                    const shouldShow = (filter === "all" || category === filter);
+                    card.classList.toggle("is-hidden", !shouldShow);
+                });
+
+                currentFilteredCards = cards.filter((card) => !card.classList.contains("is-hidden"));
+            });
+        });
+
+        // 2. Lightbox Open / Navigation / Close
+        function showLightbox(index) {
+            if (currentFilteredCards.length === 0) return;
+            if (index < 0) index = currentFilteredCards.length - 1;
+            if (index >= currentFilteredCards.length) index = 0;
+
+            activeIndex = index;
+            const targetCard = currentFilteredCards[activeIndex];
+
+            const imgEl = targetCard.querySelector(".gallery-card__img");
+            const badgeEl = targetCard.querySelector(".gallery-card__badge");
+            const titleEl = targetCard.querySelector(".gallery-card__title");
+            const descEl = targetCard.querySelector(".gallery-card__desc");
+
+            if (lightboxImg && imgEl) {
+                lightboxImg.src = imgEl.src;
+                lightboxImg.alt = imgEl.alt || "";
+            }
+            if (lightboxBadge && badgeEl) {
+                lightboxBadge.textContent = badgeEl.textContent;
+            }
+            if (lightboxTitle && titleEl) {
+                lightboxTitle.textContent = titleEl.textContent;
+            }
+            if (lightboxDesc && descEl) {
+                lightboxDesc.textContent = descEl.textContent;
+            }
+            if (lightboxCounter) {
+                lightboxCounter.textContent = `${activeIndex + 1} / ${currentFilteredCards.length}`;
+            }
+
+            lightbox.classList.add("is-open");
+            lightbox.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove("is-open");
+            lightbox.style.display = "none";
+            document.body.style.overflow = "";
+            if (lightboxImg) lightboxImg.src = "";
+        }
+
+        function nextLightbox() {
+            showLightbox(activeIndex + 1);
+        }
+
+        function prevLightbox() {
+            showLightbox(activeIndex - 1);
+        }
+
+        // Card Clicks (using event delegation)
+        galleryGrid.addEventListener("click", function (e) {
+            const card = e.target.closest(".gallery-card");
+            if (!card) return;
+
+            const idx = currentFilteredCards.indexOf(card);
+            if (idx !== -1) {
+                showLightbox(idx);
+            }
+        });
+
+        // Keyboard accessibility on cards (Enter or Space)
+        galleryGrid.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+                const card = e.target.closest(".gallery-card");
+                if (!card) return;
+                e.preventDefault();
+                const idx = currentFilteredCards.indexOf(card);
+                if (idx !== -1) {
+                    showLightbox(idx);
+                }
+            }
+        });
+
+        // Lightbox button controls
+        if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+        if (lightboxBackdrop) lightboxBackdrop.addEventListener("click", closeLightbox);
+        if (lightboxNext) lightboxNext.addEventListener("click", nextLightbox);
+        if (lightboxPrev) lightboxPrev.addEventListener("click", prevLightbox);
+
+        // Keyboard navigation (Esc, ArrowLeft, ArrowRight)
+        document.addEventListener("keydown", function (e) {
+            if (!lightbox.classList.contains("is-open")) return;
+            if (e.key === "Escape") {
+                closeLightbox();
+            } else if (e.key === "ArrowRight") {
+                const isRtl = document.documentElement.dir === "rtl";
+                if (isRtl) prevLightbox();
+                else nextLightbox();
+            } else if (e.key === "ArrowLeft") {
+                const isRtl = document.documentElement.dir === "rtl";
+                if (isRtl) nextLightbox();
+                else prevLightbox();
+            }
+        });
+    }
+
     // App Initialization (handles both loading and already-loaded DOM)
     function initApp() {
         const initialLang = getInitialLanguage();
         setLanguage(initialLang);
         initSeasonCalendar();
+        initGallery();
     }
 
     if (document.readyState === "loading") {

@@ -8,7 +8,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/style.css?v=2.2">
+        <link rel="stylesheet" href="css/style.css?v=2.3">
         <link rel="shortcut icon" type="image/png" href="img/favicon.png">
     </head>
     <body>
@@ -27,6 +27,7 @@
                             <li><a href="#mango" class="nav__link" data-i18n="nav_mango">Mango</a></li>
                             <li><a href="#produce" class="nav__link" data-i18n="nav_produce">Produce</a></li>
                             <li><a href="#calendar" class="nav__link" data-i18n="nav_calendar">Calendar</a></li>
+                            <li><a href="#gallery" class="nav__link" data-i18n="nav_gallery">Gallery</a></li>
                             <li><a href="#inquiry" class="nav__link nav__link--cta" data-i18n="nav_inquiry">Inquiry</a></li>
                         </ul>
                     </div>
@@ -628,6 +629,207 @@
                 </div>
             </section>
 
+            <!-- Section: Visual Tour & Harvest Gallery -->
+            <section class="section section--gallery" id="gallery" aria-labelledby="gallery-heading">
+                <div class="u-center-text u-margin-bottom-medium">
+                    <h2 class="heading-secondary" id="gallery-heading" data-i18n="gallery_heading">Visual Tour &amp; Harvest Gallery</h2>
+                    <p class="section-subtitle u-margin-top-small" data-i18n="gallery_subheading">A glimpse into our Egyptian orchards, certified packhouses, and premium export produce</p>
+                </div>
+
+                <div class="gallery-wrapper">
+                    <!-- Gallery Filter Controls -->
+                    <div class="gallery-filters" role="tablist" aria-label="Gallery categories">
+                        <button type="button" class="gallery-filter-btn active" data-filter="all" role="tab" aria-selected="true" data-i18n="gallery_filter_all">All Photos</button>
+                        <button type="button" class="gallery-filter-btn" data-filter="farms" role="tab" aria-selected="false" data-i18n="gallery_filter_farms">Farms &amp; Orchards</button>
+                        <button type="button" class="gallery-filter-btn" data-filter="packing" role="tab" aria-selected="false" data-i18n="gallery_filter_packing">Packhouse &amp; Quality</button>
+                        <button type="button" class="gallery-filter-btn" data-filter="crops" role="tab" aria-selected="false" data-i18n="gallery_filter_crops">Premium Crops</button>
+                    </div>
+
+                    <!-- Gallery Grid (12 Items) -->
+                    <div class="gallery-grid" id="galleryGrid">
+                        <!-- Item 1: Hand Picking -->
+                        <div class="gallery-card" data-category="farms" data-index="0" tabindex="0" role="button" aria-label="View Citrus Hand Picking photo">
+                            <div class="gallery-card__inner">
+                                <img src="img/K-8829-1-1600x1066.webp" alt="Citrus Hand Picking" class="gallery-card__img" loading="lazy">
+                                <span class="gallery-card__badge" data-i18n="gallery_filter_farms">Farms &amp; Orchards</span>
+                                <div class="gallery-card__overlay">
+                                    <span class="gallery-card__zoom-icon" aria-hidden="true">🔍</span>
+                                    <h3 class="gallery-card__title" data-i18n="gallery_item1_title">Citrus Hand Picking</h3>
+                                    <p class="gallery-card__desc" data-i18n="gallery_item1_desc">Skilled agricultural labor picking premium Valencia oranges at peak ripeness.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 2: Packhouse Sorting -->
+                        <div class="gallery-card" data-category="packing" data-index="1" tabindex="0" role="button" aria-label="View Export Packhouse Sorting photo">
+                            <div class="gallery-card__inner">
+                                <img src="img/4.jpg" alt="Export Packhouse Sorting" class="gallery-card__img" loading="lazy">
+                                <span class="gallery-card__badge" data-i18n="gallery_filter_packing">Packhouse &amp; Quality</span>
+                                <div class="gallery-card__overlay">
+                                    <span class="gallery-card__zoom-icon" aria-hidden="true">🔍</span>
+                                    <h3 class="gallery-card__title" data-i18n="gallery_item2_title">Export Packhouse Sorting</h3>
+                                    <p class="gallery-card__desc" data-i18n="gallery_item2_desc">Strict hygiene and automated sizing lines ensuring uniform export cartons.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 3: Modern Orchard Care -->
+                        <div class="gallery-card" data-category="farms" data-index="2" tabindex="0" role="button" aria-label="View Modern Orchard Care photo">
+                            <div class="gallery-card__inner">
+                                <img src="img/orange%20valancia.jpg" alt="Modern Orchard Care" class="gallery-card__img" loading="lazy">
+                                <span class="gallery-card__badge" data-i18n="gallery_filter_farms">Farms &amp; Orchards</span>
+                                <div class="gallery-card__overlay">
+                                    <span class="gallery-card__zoom-icon" aria-hidden="true">🔍</span>
+                                    <h3 class="gallery-card__title" data-i18n="gallery_item3_title">Modern Orchard Care</h3>
+                                    <p class="gallery-card__desc" data-i18n="gallery_item3_desc">Sustainable cultivation and precision agricultural equipment in Egyptian groves.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 4: Sunlit Egyptian Groves -->
+                        <div class="gallery-card" data-category="farms" data-index="3" tabindex="0" role="button" aria-label="View Sunlit Egyptian Groves photo">
+                            <div class="gallery-card__inner">
+                                <img src="img/2.jpg" alt="Sunlit Egyptian Groves" class="gallery-card__img" loading="lazy">
+                                <span class="gallery-card__badge" data-i18n="gallery_filter_farms">Farms &amp; Orchards</span>
+                                <div class="gallery-card__overlay">
+                                    <span class="gallery-card__zoom-icon" aria-hidden="true">🔍</span>
+                                    <h3 class="gallery-card__title" data-i18n="gallery_item4_title">Sunlit Egyptian Groves</h3>
+                                    <p class="gallery-card__desc" data-i18n="gallery_item4_desc">Abundant sunshine and fertile soil yielding high Brix sweetness and vibrant skin color.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 5: Wonderful Pomegranate -->
+                        <div class="gallery-card" data-category="crops" data-index="4" tabindex="0" role="button" aria-label="View Wonderful Pomegranate photo">
+                            <div class="gallery-card__inner">
+                                <img src="img/Pomegranate.jpg" alt="Wonderful Pomegranate" class="gallery-card__img" loading="lazy">
+                                <span class="gallery-card__badge" data-i18n="gallery_filter_crops">Premium Crops</span>
+                                <div class="gallery-card__overlay">
+                                    <span class="gallery-card__zoom-icon" aria-hidden="true">🔍</span>
+                                    <h3 class="gallery-card__title" data-i18n="gallery_item5_title">Wonderful Pomegranate</h3>
+                                    <p class="gallery-card__desc" data-i18n="gallery_item5_desc">Ruby red arils with high juice content and export-grade calyx integrity.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 6: Beauregard Sweet Potatoes -->
+                        <div class="gallery-card" data-category="packing" data-index="5" tabindex="0" role="button" aria-label="View Beauregard Sweet Potatoes photo">
+                            <div class="gallery-card__inner">
+                                <img src="img/sweetPotato.jpg" alt="Beauregard Sweet Potatoes" class="gallery-card__img" loading="lazy">
+                                <span class="gallery-card__badge" data-i18n="gallery_filter_packing">Packhouse &amp; Quality</span>
+                                <div class="gallery-card__overlay">
+                                    <span class="gallery-card__zoom-icon" aria-hidden="true">🔍</span>
+                                    <h3 class="gallery-card__title" data-i18n="gallery_item6_title">Beauregard Sweet Potatoes</h3>
+                                    <p class="gallery-card__desc" data-i18n="gallery_item6_desc">Carefully cured orange-flesh sweet potatoes packed in ventilated cartons.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 7: Flame Seedless Grapes -->
+                        <div class="gallery-card" data-category="crops" data-index="6" tabindex="0" role="button" aria-label="View Flame Seedless Grapes photo">
+                            <div class="gallery-card__inner">
+                                <img src="img/flamegrapes.jpg" alt="Flame Seedless Grapes" class="gallery-card__img" loading="lazy">
+                                <span class="gallery-card__badge" data-i18n="gallery_filter_crops">Premium Crops</span>
+                                <div class="gallery-card__overlay">
+                                    <span class="gallery-card__zoom-icon" aria-hidden="true">🔍</span>
+                                    <h3 class="gallery-card__title" data-i18n="gallery_item7_title">Flame Seedless Grapes</h3>
+                                    <p class="gallery-card__desc" data-i18n="gallery_item7_desc">Early Egyptian harvest offering crisp, sweet, seedless red table grapes.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 8: Keitt Mango Harvest -->
+                        <div class="gallery-card" data-category="crops" data-index="7" tabindex="0" role="button" aria-label="View Keitt Mango Harvest photo">
+                            <div class="gallery-card__inner">
+                                <img src="img/keet222.jpg" alt="Keitt Mango Harvest" class="gallery-card__img" loading="lazy">
+                                <span class="gallery-card__badge" data-i18n="gallery_filter_crops">Premium Crops</span>
+                                <div class="gallery-card__overlay">
+                                    <span class="gallery-card__zoom-icon" aria-hidden="true">🔍</span>
+                                    <h3 class="gallery-card__title" data-i18n="gallery_item8_title">Keitt Mango Harvest</h3>
+                                    <p class="gallery-card__desc" data-i18n="gallery_item8_desc">Large fiberless mangoes packed carefully for international retail programs.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 9: Valencia Citrus Canopy -->
+                        <div class="gallery-card" data-category="farms" data-index="8" tabindex="0" role="button" aria-label="View Valencia Citrus Canopy photo">
+                            <div class="gallery-card__inner">
+                                <img src="img/3.jpg" alt="Valencia Citrus Canopy" class="gallery-card__img" loading="lazy">
+                                <span class="gallery-card__badge" data-i18n="gallery_filter_farms">Farms &amp; Orchards</span>
+                                <div class="gallery-card__overlay">
+                                    <span class="gallery-card__zoom-icon" aria-hidden="true">🔍</span>
+                                    <h3 class="gallery-card__title" data-i18n="gallery_item9_title">Valencia Citrus Canopy</h3>
+                                    <p class="gallery-card__desc" data-i18n="gallery_item9_desc">Heavy-yielding Egyptian trees under blue skies ready for global distribution.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 10: Naomi Mango Specimen -->
+                        <div class="gallery-card" data-category="crops" data-index="9" tabindex="0" role="button" aria-label="View Naomi Mango Specimen photo">
+                            <div class="gallery-card__inner">
+                                <img src="img/naaomy2.jpg" alt="Naomi Mango Specimen" class="gallery-card__img" loading="lazy">
+                                <span class="gallery-card__badge" data-i18n="gallery_filter_crops">Premium Crops</span>
+                                <div class="gallery-card__overlay">
+                                    <span class="gallery-card__zoom-icon" aria-hidden="true">🔍</span>
+                                    <h3 class="gallery-card__title" data-i18n="gallery_item10_title">Naomi Mango Specimen</h3>
+                                    <p class="gallery-card__desc" data-i18n="gallery_item10_desc">Vibrant crimson blush and aromatic tropical taste favored in European and Gulf markets.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 11: Export Table Potatoes -->
+                        <div class="gallery-card" data-category="crops" data-index="10" tabindex="0" role="button" aria-label="View Export Table Potatoes photo">
+                            <div class="gallery-card__inner">
+                                <img src="img/Potato%20(2).jpg" alt="Export Table Potatoes" class="gallery-card__img" loading="lazy">
+                                <span class="gallery-card__badge" data-i18n="gallery_filter_crops">Premium Crops</span>
+                                <div class="gallery-card__overlay">
+                                    <span class="gallery-card__zoom-icon" aria-hidden="true">🔍</span>
+                                    <h3 class="gallery-card__title" data-i18n="gallery_item11_title">Export Table Potatoes</h3>
+                                    <p class="gallery-card__desc" data-i18n="gallery_item11_desc">Washed and dry-brushed varieties meeting international phytosanitary standards.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 12: Fresh Egyptian Carrots -->
+                        <div class="gallery-card" data-category="crops" data-index="11" tabindex="0" role="button" aria-label="View Fresh Egyptian Carrots photo">
+                            <div class="gallery-card__inner">
+                                <img src="img/carrot1.jpg" alt="Fresh Egyptian Carrots" class="gallery-card__img" loading="lazy">
+                                <span class="gallery-card__badge" data-i18n="gallery_filter_crops">Premium Crops</span>
+                                <div class="gallery-card__overlay">
+                                    <span class="gallery-card__zoom-icon" aria-hidden="true">🔍</span>
+                                    <h3 class="gallery-card__title" data-i18n="gallery_item12_title">Fresh Egyptian Carrots</h3>
+                                    <p class="gallery-card__desc" data-i18n="gallery_item12_desc">Crisp, sweet, uniform orange carrots ready for supermarket shelves.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lightbox Modal -->
+                <div class="gallery-lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Image Lightbox">
+                    <div class="gallery-lightbox__backdrop" id="lightboxBackdrop"></div>
+                    <div class="gallery-lightbox__dialog">
+                        <button type="button" class="gallery-lightbox__close" id="lightboxClose" aria-label="Close" data-i18n-aria="gallery_lightbox_close">&times;</button>
+                        <button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--prev" id="lightboxPrev" aria-label="Previous" data-i18n-aria="gallery_lightbox_prev">&#10094;</button>
+                        <button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--next" id="lightboxNext" aria-label="Next" data-i18n-aria="gallery_lightbox_next">&#10095;</button>
+
+                        <div class="gallery-lightbox__content">
+                            <div class="gallery-lightbox__img-wrapper">
+                                <img src="" alt="" class="gallery-lightbox__img" id="lightboxImg">
+                            </div>
+                            <div class="gallery-lightbox__caption">
+                                <div class="gallery-lightbox__meta">
+                                    <span class="gallery-lightbox__badge" id="lightboxBadge"></span>
+                                    <span class="gallery-lightbox__counter" id="lightboxCounter">1 / 12</span>
+                                </div>
+                                <h3 class="gallery-lightbox__title" id="lightboxTitle"></h3>
+                                <p class="gallery-lightbox__desc" id="lightboxDesc"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section class="section section--inquiry" id="inquiry" aria-labelledby="inquiry-heading">
                 <div class="inquiry">
                     <div class="inquiry__form">
@@ -710,6 +912,7 @@
                         <ul class="footer__list">
                             <li><a href="#company" data-i18n="nav_company">About Company</a></li>
                             <li><a href="#calendar" data-i18n="nav_calendar">Season Calendar</a></li>
+                            <li><a href="#gallery" data-i18n="nav_gallery">Gallery</a></li>
                             <li><a href="#oranges" data-i18n="company_card2_title">Packing &amp; Cold Chain</a></li>
                             <li><a href="#inquiry" data-i18n="nav_inquiry">Request Quotation</a></li>
                             <li><a href="#top" data-i18n="footer_back_top">Back to top ↑</a></li>
@@ -755,7 +958,7 @@
             </svg>
         </a>
 
-        <script src="js/translations.js?v=2.2"></script>
-        <script src="js/main.js?v=2.2"></script>
+        <script src="js/translations.js?v=2.3"></script>
+        <script src="js/main.js?v=2.3"></script>
     </body>
 </html>
