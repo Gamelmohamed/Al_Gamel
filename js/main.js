@@ -62,6 +62,35 @@
             metaDesc.setAttribute("content", translations[lang].meta_desc);
         }
 
+        // Dynamically update Open Graph & Twitter meta tags for selected language
+        const ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle && translations[lang].meta_title) {
+            ogTitle.setAttribute("content", translations[lang].meta_title);
+        }
+        const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+        if (twitterTitle && translations[lang].meta_title) {
+            twitterTitle.setAttribute("content", translations[lang].meta_title);
+        }
+        const ogDesc = document.querySelector('meta[property="og:description"]');
+        if (ogDesc && translations[lang].meta_desc) {
+            ogDesc.setAttribute("content", translations[lang].meta_desc);
+        }
+        const twitterDesc = document.querySelector('meta[name="twitter:description"]');
+        if (twitterDesc && translations[lang].meta_desc) {
+            twitterDesc.setAttribute("content", translations[lang].meta_desc);
+        }
+        const ogLocale = document.querySelector('meta[property="og:locale"]');
+        if (ogLocale) {
+            const localeMap = {
+                ar: "ar_EG",
+                en: "en_US",
+                ru: "ru_RU",
+                de: "de_DE",
+                fr: "fr_FR"
+            };
+            ogLocale.setAttribute("content", localeMap[lang] || "en_US");
+        }
+
         // Update text content for elements with data-i18n
         document.querySelectorAll("[data-i18n]").forEach((el) => {
             const key = el.getAttribute("data-i18n");
