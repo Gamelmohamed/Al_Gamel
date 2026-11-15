@@ -8,7 +8,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style.css?v=2.2">
         <link rel="shortcut icon" type="image/png" href="img/favicon.png">
     </head>
     <body>
@@ -26,6 +26,7 @@
                             <li><a href="#grapes" class="nav__link" data-i18n="nav_grapes">Grapes</a></li>
                             <li><a href="#mango" class="nav__link" data-i18n="nav_mango">Mango</a></li>
                             <li><a href="#produce" class="nav__link" data-i18n="nav_produce">Produce</a></li>
+                            <li><a href="#calendar" class="nav__link" data-i18n="nav_calendar">Calendar</a></li>
                             <li><a href="#inquiry" class="nav__link nav__link--cta" data-i18n="nav_inquiry">Inquiry</a></li>
                         </ul>
                     </div>
@@ -111,8 +112,20 @@
 
         <main>
             <section class="section section--company" id="company" aria-labelledby="company-heading">
-                <div class="u-center-text u-margin-bottom-big">
+                <div class="u-center-text u-margin-bottom-small">
+                    <span class="company-about__subtitle" data-i18n="company_about_title">About AL-GAMEL</span>
                     <h2 class="heading-secondary" id="company-heading" data-i18n="company_heading">From Egyptian farms to your market</h2>
+                </div>
+
+                <div class="company-about">
+                    <div class="company-about__card">
+                        <p class="company-about__p company-about__p--lead" data-i18n="company_about_p1">
+                            Al-Gamel is an Egyptian agricultural export company specializing in the sourcing, packing, and export of high-quality fresh produce to international markets. We work closely with trusted growers and farming partners to ensure a reliable supply of premium Egyptian fruits and vegetables, including oranges, grapes, mangoes, pomegranates, potatoes, onions, and garlic.
+                        </p>
+                        <p class="company-about__p" data-i18n="company_about_p2">
+                            Our business is built on three core values: quality, reliability, and commitment. We focus on understanding our customers' requirements, providing consistent product availability, and ensuring timely deliveries that meet international market standards. At Al-Gamel, we believe that successful partnerships are built on trust, transparency, and long-term cooperation. Our mission is to connect the richness of Egyptian agriculture with global markets, delivering value to our partners and bringing the best of Egypt's fresh produce to the world.
+                        </p>
+                    </div>
                 </div>
 
                 <div class="grid grid--3">
@@ -305,6 +318,316 @@
                 </div>
             </section>
 
+            <section class="section section--calendar" id="calendar" aria-labelledby="calendar-heading">
+                <div class="u-center-text u-margin-bottom-medium">
+                    <h2 class="heading-secondary" id="calendar-heading" data-i18n="calendar_heading">Export Seasonality Calendar</h2>
+                    <p class="section-subtitle u-margin-top-small" data-i18n="calendar_subheading">Harvest windows and seasonal supply from Egyptian farms to global markets</p>
+                </div>
+
+                <div class="calendar-wrapper">
+                    <!-- Filter Controls -->
+                    <div class="calendar-filters" role="tablist" aria-label="Crop categories">
+                        <button type="button" class="calendar-filter-btn active" data-filter="all" role="tab" aria-selected="true" data-i18n="calendar_filter_all">All Crops</button>
+                        <button type="button" class="calendar-filter-btn" data-filter="fruits" role="tab" aria-selected="false" data-i18n="calendar_filter_fruits">Fruits &amp; Citrus</button>
+                        <button type="button" class="calendar-filter-btn" data-filter="vegetables" role="tab" aria-selected="false" data-i18n="calendar_filter_veg">Vegetables</button>
+                        <button type="button" class="calendar-filter-btn calendar-filter-btn--now" data-filter="now" role="tab" aria-selected="false" data-i18n="calendar_filter_now">In Season Now ⚡</button>
+                    </div>
+
+                    <!-- Legend -->
+                    <div class="calendar-legend">
+                        <span class="calendar-legend__item">
+                            <span class="calendar-legend__box calendar-legend__box--peak"></span>
+                            <span data-i18n="calendar_legend_peak">Peak Season</span>
+                        </span>
+                        <span class="calendar-legend__item">
+                            <span class="calendar-legend__box calendar-legend__box--active"></span>
+                            <span data-i18n="calendar_legend_active">Available for Export</span>
+                        </span>
+                        <span class="calendar-legend__item">
+                            <span class="calendar-legend__box calendar-legend__box--current"></span>
+                            <span data-i18n="calendar_legend_now">Current Month</span>
+                        </span>
+                    </div>
+
+                    <!-- Calendar Table with Horizontal Scroll Support -->
+                    <div class="calendar-table-container">
+                        <table class="calendar-table" id="calendarTable">
+                            <thead>
+                                <tr>
+                                    <th class="cal-th-crop">Crop &amp; Variety</th>
+                                    <th data-month="1" data-i18n="cal_m1">Jan</th>
+                                    <th data-month="2" data-i18n="cal_m2">Feb</th>
+                                    <th data-month="3" data-i18n="cal_m3">Mar</th>
+                                    <th data-month="4" data-i18n="cal_m4">Apr</th>
+                                    <th data-month="5" data-i18n="cal_m5">May</th>
+                                    <th data-month="6" data-i18n="cal_m6">Jun</th>
+                                    <th data-month="7" data-i18n="cal_m7">Jul</th>
+                                    <th data-month="8" data-i18n="cal_m8">Aug</th>
+                                    <th data-month="9" data-i18n="cal_m9">Sep</th>
+                                    <th data-month="10" data-i18n="cal_m10">Oct</th>
+                                    <th data-month="11" data-i18n="cal_m11">Nov</th>
+                                    <th data-month="12" data-i18n="cal_m12">Dec</th>
+                                    <th class="cal-th-action">Inquire</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Valencia Oranges: Dec - May (Peak: Jan - Apr) -->
+                                <tr class="cal-row" data-category="fruits" data-months="12,1,2,3,4,5">
+                                    <td class="cal-td-crop">
+                                        <div class="cal-crop">
+                                            <span class="cal-crop__icon">🍊</span>
+                                            <div>
+                                                <strong class="cal-crop__name" data-i18n="calendar_oranges_name">Valencia Oranges</strong>
+                                                <span class="cal-crop__sub" data-i18n="calendar_oranges_sub">Natural sweetness &amp; high juice content</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cal-cell is-peak" data-month="1"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="2"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="3"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="4"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-active" data-month="5"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell" data-month="6"></td>
+                                    <td class="cal-cell" data-month="7"></td>
+                                    <td class="cal-cell" data-month="8"></td>
+                                    <td class="cal-cell" data-month="9"></td>
+                                    <td class="cal-cell" data-month="10"></td>
+                                    <td class="cal-cell" data-month="11"></td>
+                                    <td class="cal-cell is-active" data-month="12"><span class="cal-bar"></span></td>
+                                    <td class="cal-td-action">
+                                        <button type="button" class="cal-rfq-btn" data-crop="Valencia Oranges" data-i18n="calendar_btn_rfq">Book Season / Quote</button>
+                                    </td>
+                                </tr>
+
+                                <!-- Seedless Grapes: May - Aug (Peak: Jun - Jul) -->
+                                <tr class="cal-row" data-category="fruits" data-months="5,6,7,8">
+                                    <td class="cal-td-crop">
+                                        <div class="cal-crop">
+                                            <span class="cal-crop__icon">🍇</span>
+                                            <div>
+                                                <strong class="cal-crop__name" data-i18n="calendar_grapes_name">Seedless Grapes</strong>
+                                                <span class="cal-crop__sub" data-i18n="calendar_grapes_sub">Flame, Superior, Crimson, Black</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cal-cell" data-month="1"></td>
+                                    <td class="cal-cell" data-month="2"></td>
+                                    <td class="cal-cell" data-month="3"></td>
+                                    <td class="cal-cell" data-month="4"></td>
+                                    <td class="cal-cell is-active" data-month="5"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="6"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="7"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-active" data-month="8"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell" data-month="9"></td>
+                                    <td class="cal-cell" data-month="10"></td>
+                                    <td class="cal-cell" data-month="11"></td>
+                                    <td class="cal-cell" data-month="12"></td>
+                                    <td class="cal-td-action">
+                                        <button type="button" class="cal-rfq-btn" data-crop="Seedless Grapes" data-i18n="calendar_btn_rfq">Book Season / Quote</button>
+                                    </td>
+                                </tr>
+
+                                <!-- Mangoes: Jul - Nov (Peak: Aug - Oct) -->
+                                <tr class="cal-row" data-category="fruits" data-months="7,8,9,10,11">
+                                    <td class="cal-td-crop">
+                                        <div class="cal-crop">
+                                            <span class="cal-crop__icon">🥭</span>
+                                            <div>
+                                                <strong class="cal-crop__name" data-i18n="calendar_mango_name">Egyptian Mangoes</strong>
+                                                <span class="cal-crop__sub" data-i18n="calendar_mango_sub">Keitt, Naomi, Owaisi</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cal-cell" data-month="1"></td>
+                                    <td class="cal-cell" data-month="2"></td>
+                                    <td class="cal-cell" data-month="3"></td>
+                                    <td class="cal-cell" data-month="4"></td>
+                                    <td class="cal-cell" data-month="5"></td>
+                                    <td class="cal-cell" data-month="6"></td>
+                                    <td class="cal-cell is-active" data-month="7"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="8"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="9"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="10"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-active" data-month="11"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell" data-month="12"></td>
+                                    <td class="cal-td-action">
+                                        <button type="button" class="cal-rfq-btn" data-crop="Mangoes" data-i18n="calendar_btn_rfq">Book Season / Quote</button>
+                                    </td>
+                                </tr>
+
+                                <!-- Pomegranate: Sep - Dec (Peak: Oct - Nov) -->
+                                <tr class="cal-row" data-category="fruits" data-months="9,10,11,12">
+                                    <td class="cal-td-crop">
+                                        <div class="cal-crop">
+                                            <span class="cal-crop__icon">🍷</span>
+                                            <div>
+                                                <strong class="cal-crop__name" data-i18n="calendar_pom_name">Pomegranate</strong>
+                                                <span class="cal-crop__sub" data-i18n="calendar_pom_sub">Wonderful variety, deep ruby color</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cal-cell" data-month="1"></td>
+                                    <td class="cal-cell" data-month="2"></td>
+                                    <td class="cal-cell" data-month="3"></td>
+                                    <td class="cal-cell" data-month="4"></td>
+                                    <td class="cal-cell" data-month="5"></td>
+                                    <td class="cal-cell" data-month="6"></td>
+                                    <td class="cal-cell" data-month="7"></td>
+                                    <td class="cal-cell" data-month="8"></td>
+                                    <td class="cal-cell is-active" data-month="9"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="10"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="11"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-active" data-month="12"><span class="cal-bar"></span></td>
+                                    <td class="cal-td-action">
+                                        <button type="button" class="cal-rfq-btn" data-crop="Pomegranate" data-i18n="calendar_btn_rfq">Book Season / Quote</button>
+                                    </td>
+                                </tr>
+
+                                <!-- Sweet Potato: Aug - Mar (Peak: Sep - Jan) -->
+                                <tr class="cal-row" data-category="vegetables" data-months="8,9,10,11,12,1,2,3">
+                                    <td class="cal-td-crop">
+                                        <div class="cal-crop">
+                                            <span class="cal-crop__icon">🍠</span>
+                                            <div>
+                                                <strong class="cal-crop__name" data-i18n="calendar_sp_name">Sweet Potato</strong>
+                                                <span class="cal-crop__sub" data-i18n="calendar_sp_sub">Beauregard, orange flesh</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cal-cell is-peak" data-month="1"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-active" data-month="2"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-active" data-month="3"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell" data-month="4"></td>
+                                    <td class="cal-cell" data-month="5"></td>
+                                    <td class="cal-cell" data-month="6"></td>
+                                    <td class="cal-cell" data-month="7"></td>
+                                    <td class="cal-cell is-active" data-month="8"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="9"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="10"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="11"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="12"><span class="cal-bar"></span></td>
+                                    <td class="cal-td-action">
+                                        <button type="button" class="cal-rfq-btn" data-crop="Sweet Potato" data-i18n="calendar_btn_rfq">Book Season / Quote</button>
+                                    </td>
+                                </tr>
+
+                                <!-- Potatoes: Jan - Jun (Peak: Feb - May) -->
+                                <tr class="cal-row" data-category="vegetables" data-months="1,2,3,4,5,6">
+                                    <td class="cal-td-crop">
+                                        <div class="cal-crop">
+                                            <span class="cal-crop__icon">🥔</span>
+                                            <div>
+                                                <strong class="cal-crop__name" data-i18n="calendar_pot_name">Potatoes</strong>
+                                                <span class="cal-crop__sub" data-i18n="calendar_pot_sub">Table &amp; processing grades</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cal-cell is-active" data-month="1"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="2"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="3"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="4"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="5"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-active" data-month="6"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell" data-month="7"></td>
+                                    <td class="cal-cell" data-month="8"></td>
+                                    <td class="cal-cell" data-month="9"></td>
+                                    <td class="cal-cell" data-month="10"></td>
+                                    <td class="cal-cell" data-month="11"></td>
+                                    <td class="cal-cell" data-month="12"></td>
+                                    <td class="cal-td-action">
+                                        <button type="button" class="cal-rfq-btn" data-crop="Potatoes" data-i18n="calendar_btn_rfq">Book Season / Quote</button>
+                                    </td>
+                                </tr>
+
+                                <!-- Onions: Feb - Jul (Peak: Mar - Jun) -->
+                                <tr class="cal-row" data-category="vegetables" data-months="2,3,4,5,6,7">
+                                    <td class="cal-td-crop">
+                                        <div class="cal-crop">
+                                            <span class="cal-crop__icon">🧅</span>
+                                            <div>
+                                                <strong class="cal-crop__name" data-i18n="calendar_onion_name">Onions</strong>
+                                                <span class="cal-crop__sub" data-i18n="calendar_onion_sub">Golden &amp; red, firm skins</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cal-cell" data-month="1"></td>
+                                    <td class="cal-cell is-active" data-month="2"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="3"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="4"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="5"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="6"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-active" data-month="7"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell" data-month="8"></td>
+                                    <td class="cal-cell" data-month="9"></td>
+                                    <td class="cal-cell" data-month="10"></td>
+                                    <td class="cal-cell" data-month="11"></td>
+                                    <td class="cal-cell" data-month="12"></td>
+                                    <td class="cal-td-action">
+                                        <button type="button" class="cal-rfq-btn" data-crop="Onions" data-i18n="calendar_btn_rfq">Book Season / Quote</button>
+                                    </td>
+                                </tr>
+
+                                <!-- Garlic: Feb - May (Peak: Mar - Apr) -->
+                                <tr class="cal-row" data-category="vegetables" data-months="2,3,4,5">
+                                    <td class="cal-td-crop">
+                                        <div class="cal-crop">
+                                            <span class="cal-crop__icon">🧄</span>
+                                            <div>
+                                                <strong class="cal-crop__name" data-i18n="calendar_garlic_name">Garlic</strong>
+                                                <span class="cal-crop__sub" data-i18n="calendar_garlic_sub">Dry &amp; green export grade</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cal-cell" data-month="1"></td>
+                                    <td class="cal-cell is-active" data-month="2"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="3"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="4"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-active" data-month="5"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell" data-month="6"></td>
+                                    <td class="cal-cell" data-month="7"></td>
+                                    <td class="cal-cell" data-month="8"></td>
+                                    <td class="cal-cell" data-month="9"></td>
+                                    <td class="cal-cell" data-month="10"></td>
+                                    <td class="cal-cell" data-month="11"></td>
+                                    <td class="cal-cell" data-month="12"></td>
+                                    <td class="cal-td-action">
+                                        <button type="button" class="cal-rfq-btn" data-crop="Garlic" data-i18n="calendar_btn_rfq">Book Season / Quote</button>
+                                    </td>
+                                </tr>
+
+                                <!-- Carrots: Dec - May (Peak: Jan - Apr) -->
+                                <tr class="cal-row" data-category="vegetables" data-months="12,1,2,3,4,5">
+                                    <td class="cal-td-crop">
+                                        <div class="cal-crop">
+                                            <span class="cal-crop__icon">🥕</span>
+                                            <div>
+                                                <strong class="cal-crop__name" data-i18n="calendar_carrot_name">Carrots</strong>
+                                                <span class="cal-crop__sub" data-i18n="calendar_carrot_sub">Crisp texture, uniform size</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cal-cell is-peak" data-month="1"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="2"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="3"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-peak" data-month="4"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell is-active" data-month="5"><span class="cal-bar"></span></td>
+                                    <td class="cal-cell" data-month="6"></td>
+                                    <td class="cal-cell" data-month="7"></td>
+                                    <td class="cal-cell" data-month="8"></td>
+                                    <td class="cal-cell" data-month="9"></td>
+                                    <td class="cal-cell" data-month="10"></td>
+                                    <td class="cal-cell" data-month="11"></td>
+                                    <td class="cal-cell is-active" data-month="12"><span class="cal-bar"></span></td>
+                                    <td class="cal-td-action">
+                                        <button type="button" class="cal-rfq-btn" data-crop="Carrots" data-i18n="calendar_btn_rfq">Book Season / Quote</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
             <section class="section section--inquiry" id="inquiry" aria-labelledby="inquiry-heading">
                 <div class="inquiry">
                     <div class="inquiry__form">
@@ -354,18 +677,69 @@
         </main>
 
         <footer class="footer">
-            <img class="footer__logo" srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" src="img/logo-green-2x.png" alt="AL-GAMEL">
-            <p class="footer__tagline" data-i18n="footer_tagline">Egyptian fresh produce export</p>
-            <nav class="footer__nav" aria-label="Footer">
-                <a href="#oranges" data-i18n="nav_oranges">Oranges</a>
-                <a href="#grapes" data-i18n="nav_grapes">Grapes</a>
-                <a href="#mango" data-i18n="nav_mango">Mango</a>
-                <a href="#produce" data-i18n="nav_produce">Produce</a>
-                <a href="#inquiry" data-i18n="nav_inquiry">Inquiry</a>
-            </nav>
-            <p class="footer__contact">
-                <a href="https://wa.me/201024267088" data-i18n="footer_whatsapp">WhatsApp +20 102 426 7088</a>
-            </p>
+            <div class="footer__container">
+                <div class="footer__grid">
+                    <!-- Column 1: Brand & Identity -->
+                    <div class="footer__col footer__col--brand">
+                        <a href="#top" class="footer__brand-link" aria-label="AL-GAMEL Home">
+                            <img class="footer__logo" srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" src="img/logo-green-2x.png" alt="AL-GAMEL">
+                        </a>
+                        <p class="footer__tagline" data-i18n="footer_tagline">Egyptian fresh produce export</p>
+                        <p class="footer__desc" data-i18n="footer_desc">Reliable Egyptian agricultural exports — premium citrus, seedless grapes, mangoes, and vegetables packed to global standards.</p>
+                        <div class="footer__badges">
+                            <span class="footer__badge">🇪🇬 Origin: Egypt</span>
+                            <span class="footer__badge">❄️ Cold Chain Certified</span>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Export Produce -->
+                    <div class="footer__col">
+                        <h4 class="footer__title" data-i18n="footer_col_produce">Export Produce</h4>
+                        <ul class="footer__list">
+                            <li><a href="#oranges" data-i18n="nav_oranges">Valencia Oranges</a></li>
+                            <li><a href="#grapes" data-i18n="nav_grapes">Seedless Grapes</a></li>
+                            <li><a href="#mango" data-i18n="nav_mango">Egyptian Mangoes</a></li>
+                            <li><a href="#produce" data-i18n="produce_pom_title">Pomegranate</a></li>
+                            <li><a href="#produce" data-i18n="produce_pot_title">Potatoes &amp; Onions</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 3: Quick Navigation -->
+                    <div class="footer__col">
+                        <h4 class="footer__title" data-i18n="footer_col_links">Quick Links</h4>
+                        <ul class="footer__list">
+                            <li><a href="#company" data-i18n="nav_company">About Company</a></li>
+                            <li><a href="#calendar" data-i18n="nav_calendar">Season Calendar</a></li>
+                            <li><a href="#oranges" data-i18n="company_card2_title">Packing &amp; Cold Chain</a></li>
+                            <li><a href="#inquiry" data-i18n="nav_inquiry">Request Quotation</a></li>
+                            <li><a href="#top" data-i18n="footer_back_top">Back to top ↑</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 4: Contact & Direct Export Desk -->
+                    <div class="footer__col footer__col--contact">
+                        <h4 class="footer__title" data-i18n="footer_col_contact">Direct Export Desk</h4>
+                        <p class="footer__contact-lead" data-i18n="footer_contact_lead">Connect with our export desk for pricing, specifications &amp; seasonal availability:</p>
+                        <a href="https://wa.me/201024267088" target="_blank" rel="noopener noreferrer" class="footer__whatsapp-pill">
+                            <span class="footer__whatsapp-icon" aria-hidden="true">💬</span>
+                            <div class="footer__whatsapp-info">
+                                <span class="footer__whatsapp-label">WhatsApp Export Desk</span>
+                                <strong class="footer__whatsapp-number">+20 102 426 7088</strong>
+                            </div>
+                        </a>
+                        <a href="#inquiry" class="btn btn--primary footer__cta-btn" data-i18n="hero_cta">Request a quotation</a>
+                    </div>
+                </div>
+
+                <div class="footer__bottom">
+                    <p class="footer__copyright" data-i18n="footer_copyright">
+                        &copy; 2026 AL-GAMEL. All rights reserved. Egyptian Fresh Produce Export.
+                    </p>
+                    <a href="#top" class="footer__to-top" aria-label="Back to top">
+                        <span aria-hidden="true">↑</span>
+                    </a>
+                </div>
+            </div>
         </footer>
 
         <a
@@ -381,7 +755,7 @@
             </svg>
         </a>
 
-        <script src="js/translations.js"></script>
-        <script src="js/main.js"></script>
+        <script src="js/translations.js?v=2.2"></script>
+        <script src="js/main.js?v=2.2"></script>
     </body>
 </html>

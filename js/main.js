@@ -287,9 +287,99 @@
         });
     }
 
-    // Initialize on DOM load
-    document.addEventListener("DOMContentLoaded", function () {
+    // Seasonal Export Calendar Controls
+    function initSeasonCalendar() {
+        const calendarTable = document.getElementById("calendarTable");
+        if (!calendarTable) return;
+
+        // 1. Highlight real-world current month
+        const currentMonth = new Date().getMonth() + 1; // 1 to 12
+        calendarTable.querySelectorAll(`[data-month="${currentMonth}"]`).forEach((cell) => {
+            cell.classList.add("is-current-month");
+        });
+
+        // 2. Filter buttons
+        const filterBtns = document.querySelectorAll(".calendar-filter-btn");
+        const rows = calendarTable.querySelectorAll(".cal-row");
+
+        filterBtns.forEach((btn) => {
+            btn.addEventListener("click", function () {
+                filterBtns.forEach((b) => {
+                    b.classList.remove("active");
+                    b.setAttribute("aria-selected", "false");
+                });
+                this.classList.add("active");
+                this.setAttribute("aria-selected", "true");
+
+                const filter = this.getAttribute("data-filter");
+
+                rows.forEach((row) => {
+                    const category = row.getAttribute("data-category");
+                    const monthsStr = row.getAttribute("data-months") || "";
+                    const months = monthsStr
+                        .split(",")
+                        .map((m) => parseInt(m.trim(), 10))
+                        .filter((n) => !isNaN(n));
+
+                    let shouldShow = true;
+                    if (filter === "fruits" || filter === "vegetables") {
+                        shouldShow = (category === filter);
+                    } else if (filter === "now") {
+                        shouldShow = months.includes(currentMonth);
+                    }
+
+                    row.classList.toggle("is-hidden", !shouldShow);
+                });
+            });
+        });
+
+        // 3. One-click RFQ button from Calendar
+        const rfqBtns = calendarTable.querySelectorAll(".cal-rfq-btn");
+        const productInput = document.getElementById("product");
+
+        rfqBtns.forEach((btn) => {
+            btn.addEventListener("click", function () {
+                const row = this.closest(".cal-row");
+                const cropNameEl = row ? row.querySelector(".cal-crop__name") : null;
+                const cropName = (cropNameEl && cropNameEl.textContent ? cropNameEl.textContent.trim() : "") || this.getAttribute("data-crop") || "";
+
+                if (productInput && cropName) {
+                    productInput.value = cropName;
+                    const event = new Event("input", { bubbles: true });
+                    productInput.dispatchEvent(event);
+
+                    // Visual pulse indicator on the input
+                    productInput.style.transition = "box-shadow 0.3s ease, border-color 0.3s ease";
+                    productInput.style.borderColor = "#28b485";
+                    productInput.style.boxShadow = "0 0 0 3px rgba(40, 180, 133, 0.35)";
+                    setTimeout(() => {
+                        productInput.style.borderColor = "";
+                        productInput.style.boxShadow = "";
+                    }, 1800);
+                }
+
+                const inquirySec = document.getElementById("inquiry");
+                if (inquirySec) {
+                    inquirySec.scrollIntoView({ behavior: "smooth" });
+                    setTimeout(() => {
+                        const nameInput = document.getElementById("name");
+                        if (nameInput) nameInput.focus();
+                    }, 500);
+                }
+            });
+        });
+    }
+
+    // App Initialization (handles both loading and already-loaded DOM)
+    function initApp() {
         const initialLang = getInitialLanguage();
         setLanguage(initialLang);
-    });
+        initSeasonCalendar();
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initApp);
+    } else {
+        initApp();
+    }
 })();
