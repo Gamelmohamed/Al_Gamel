@@ -1,3 +1,4 @@
+// UI Translations for 5 Languages: English, Arabic, Russian, German, French
 const translations = {
     "en": {
         "meta_title": "AL-GAMEL | Egyptian Fresh Produce Export",
@@ -140,7 +141,7 @@ const translations = {
         "whatsapp_aria": "Chat on WhatsApp",
         "nav_gallery": "Gallery",
         "gallery_heading": "Visual Tour & Harvest Gallery",
-        "gallery_subheading": "A glimpse into our Egyptian orchards, certified packhouses, and premium export produce",
+        "gallery_subheading": "A glimpse into our Egyptian orchards, modern packhouses, and premium export produce",
         "gallery_filter_all": "All Photos",
         "gallery_filter_farms": "Farms & Orchards",
         "gallery_filter_packing": "Packhouse & Quality",
@@ -180,15 +181,13 @@ const translations = {
         "catalog_btn_quote": "Request Quotation",
         "catalog_btn_wa": "Inquire on WhatsApp",
         "catalog_overview_title": "Company Profile & Export Quality",
-        "catalog_overview_text": "AL-GAMEL is a specialized Egyptian agricultural exporter supplying international markets with premium citrus, seedless grapes, mangoes, and vegetables. We operate under strict GlobalG.A.P and ISO hygiene standards with end-to-end cold chain management.",
+        "catalog_overview_text": "AL-GAMEL is a specialized Egyptian agricultural exporter supplying international markets with premium citrus, seedless grapes, mangoes, and vegetables. We operate under strict international hygiene standards with end-to-end cold chain management.",
         "catalog_table_title": "Product Specifications & Packaging Matrix",
         "catalog_col_product": "Crop & Variety",
         "catalog_col_sizes": "Sizes / Calibers",
         "catalog_col_packaging": "Packaging & Net Weight",
         "catalog_col_container": "Reefer Container Load",
-        "catalog_col_temp": "Storage Temp",
-        "catalog_cert_title": "Quality Inspection & Shipping Documents",
-        "catalog_cert_text": "Every export shipment is inspected by the Egyptian Ministry of Agriculture and accompanied by Phytosanitary Certificate, Certificate of Origin, Bill of Lading, Commercial Invoice, Packing List, and temperature recorder data loggers."
+        "catalog_col_temp": "Storage Temp"
     },
     "ar": {
         "meta_title": "الجميل | لتصدير الحاصلات الزراعية المصرية الطازجة",
@@ -220,7 +219,7 @@ const translations = {
         "company_card2_title": "تعبئة وسلسلة تبريد متكاملة",
         "company_card2_desc": "تتم عمليات الحصاد والتعبئة والشحن بضوابط جودة صارمة لضمان وصول الشحنات طازجة وموحدة وخالية من العيوب.",
         "company_card3_title": "تصدير موثوق ومستدام",
-        "company_card3_desc": "نزود المستوردين وسلاسل التوزيع بكميات منتظمة وتوثيق دقيق وشهادات جودة مع متابعة مستمرة على مدار الموسم.",
+        "company_card3_desc": "نزود المستوردين وسلاسل التوزيع بكميات منتظمة وتوثيق دقيق ومتابعة مستمرة على مدار الموسم.",
         "oranges_heading": "برتقال فالنسيا الصيفي",
         "oranges_subheading": "أجود الموالح المصرية للتصدير",
         "oranges_desc": "يتميز برتقال فالنسيا بحلاوة مذاقه الطبيعي، ونسبة عصيره العالية، ولونه الزاهي، مع قدرة فائقة على الشحن والتخزين لتلبية تطلعات المشترين الدوليين.",
@@ -371,15 +370,13 @@ const translations = {
         "catalog_btn_quote": "طلب عرض أسعار",
         "catalog_btn_wa": "طلب الكتالوج عبر واتساب",
         "catalog_overview_title": "نبذة عن الشركة ومعايير الجودة",
-        "catalog_overview_text": "شركة الجميل متخصصة في توريد وتعبئة وتصدير الحاصلات الزراعية المصرية الفاخرة للأسواق العالمية وفق معايير الجودة العالمية GlobalG.A.P وISO، مع ضمان سلامة سلسلة التبريد من المزرعة وحتى موانئ الوصول.",
+        "catalog_overview_text": "شركة الجميل متخصصة في توريد وتعبئة وتصدير الحاصلات الزراعية المصرية الفاخرة للأسواق العالمية وفق أعلى معايير الجودة والنظافة، مع ضمان سلامة سلسلة التبريد من المزرعة وحتى موانئ الوصول.",
         "catalog_table_title": "جدول مواصفات المنتجات ومعايير التعبئة",
         "catalog_col_product": "المحصول والأصناف",
         "catalog_col_sizes": "المعايرة والأحجام",
         "catalog_col_packaging": "طريقة التعبئة والوزن الصافي",
         "catalog_col_container": "حمولة الحاوية المبردة",
-        "catalog_col_temp": "درجة حرارة الشحن",
-        "catalog_cert_title": "فحص الجودة والمستندات الرسمية المرفقة",
-        "catalog_cert_text": "تخضع جميع الشحنات للفحص الدقيق من الحجر الزراعي المصري، وترفق بكافة المستندات: الشهادة النباتية الرسمية، شهادة المنشأ، بوليصة الشحن، الفاتورة وقائمة التعبئة، مع أجهزة تسجيل درجات الحرارة داخل الحاوية."
+        "catalog_col_temp": "درجة حرارة الشحن"
     },
     "ru": {
         "meta_title": "AL-GAMEL | Экспорт свежих овощей и фруктов из Египта",
@@ -562,15 +559,13 @@ const translations = {
         "catalog_btn_quote": "Запросить расчёт цен",
         "catalog_btn_wa": "Запрос в WhatsApp",
         "catalog_overview_title": "О компании и стандартах качества",
-        "catalog_overview_text": "Компания AL-GAMEL поставляет отборные египетские цитрусовые, виноград, манго и овощи на мировые рынки в соответствии со стандартами GlobalG.A.P и ISO, с непрерывным контролем холодовой цепи.",
+        "catalog_overview_text": "Компания AL-GAMEL поставляет отборные египетские цитрусовые, виноград, манго и овощи на мировые рынки в соответствии со строгими международными стандартами гигиены, с непрерывным контролем холодовой цепи.",
         "catalog_table_title": "Спецификации продукции и упаковка",
         "catalog_col_product": "Продукция и сорта",
         "catalog_col_sizes": "Калибры и размеры",
         "catalog_col_packaging": "Упаковка и вес нетто",
         "catalog_col_container": "Загрузка рефконтейнера",
-        "catalog_col_temp": "Температура доставки",
-        "catalog_cert_title": "Контроль качества и сопроводительные документы",
-        "catalog_cert_text": "Каждая партия проходит фитосанитарный контроль Министерства сельского хозяйства Египта и сопровождается фитосертификатом, сертификатом происхождения, коносаментом и логгерами температуры."
+        "catalog_col_temp": "Температура доставки"
     },
     "de": {
         "meta_title": "AL-GAMEL | Export von frischem Obst und Gemüse aus Ägypten",
@@ -753,15 +748,13 @@ const translations = {
         "catalog_btn_quote": "Angebot anfordern",
         "catalog_btn_wa": "Über WhatsApp anfragen",
         "catalog_overview_title": "Unternehmensprofil & Qualitätsmanagement",
-        "catalog_overview_text": "AL-GAMEL ist ein spezialisierter ägyptischer Agrarexporteur für erstklassige Zitrusfrüchte, kernlose Weintrauben, Mangos und Gemüse nach GlobalG.A.P- und ISO-Standards mit durchgehender Kühlkette.",
+        "catalog_overview_text": "AL-GAMEL ist ein spezialisierter ägyptischer Agrarexporteur für erstklassige Zitrusfrüchte, kernlose Weintrauben, Mangos und Gemüse nach internationalen Qualitäts- und Hygienestandards mit durchgehender Kühlkette.",
         "catalog_table_title": "Produktspezifikationen & Verpackungsmatrix",
         "catalog_col_product": "Erzeugnis & Sorten",
         "catalog_col_sizes": "Kalibrierung / Größen",
         "catalog_col_packaging": "Verpackung & Nettogewicht",
         "catalog_col_container": "Kühlcontainer-Kapazität",
-        "catalog_col_temp": "Transporttemperatur",
-        "catalog_cert_title": "Qualitätsprüfung & Versanddokumente",
-        "catalog_cert_text": "Jede Exportsendung wird amtlich geprüft und mit Pflanzengesundheitszeugnis, Ursprungszeugnis, Frachtbrief, Handelsrechnung, Packliste und Temperaturdatenloggern geliefert."
+        "catalog_col_temp": "Transporttemperatur"
     },
     "fr": {
         "meta_title": "AL-GAMEL | Exportation de fruits et légumes frais d'Égypte",
@@ -778,7 +771,7 @@ const translations = {
         "hero_lead": "Fruits et légumes d'Égypte — conditionnés et expédiés vers les marchés mondiaux.",
         "hero_cta": "Demander un devis",
         "hero_explore": "Découvrir nos produits",
-        "hero_stat1_title": "Qualité export certifiée",
+        "hero_stat1_title": "Qualité export supérieure",
         "hero_stat1_desc": "Agrumes, raisins, mangues & légumes",
         "hero_stat2_title": "Chaîne du froid maîtrisée",
         "hero_stat2_desc": "Fraîcheur préservée de la récolte au port",
@@ -789,7 +782,7 @@ const translations = {
         "company_about_p1": "AL-GAMEL est une société égyptienne d'exportation agricole spécialisée dans l'approvisionnement, le conditionnement et l'exportation de produits frais de qualité supérieure vers les marchés internationaux. Nous travaillons en étroite collaboration avec des producteurs partenaires de confiance afin de garantir un approvisionnement fiable en fruits et légumes égyptiens d'excellence, notamment les oranges, raisins, mangues, grenades, pommes de terre, oignons et ail.",
         "company_about_p2": "Notre activité repose sur trois valeurs fondamentales : la qualité, la fiabilité et l'engagement. Nous accordons une importance primordiale à l'écoute des besoins de nos clients, à la régularité des volumes et à la ponctualité des livraisons selon les normes internationales. Chez AL-GAMEL, nous sommes convaincus que les partenariats solides reposent sur la confiance, la transparence et la coopération pérenne. Notre mission est d'unir la richesse de l'agriculture égyptienne aux marchés internationaux.",
         "company_card1_title": "Sélection à l'origine",
-        "company_card1_desc": "Fruits et légumes récoltés sur des exploitations certifiées et calibrés selon les normes d'exportation.",
+        "company_card1_desc": "Fruits et légumes récoltés sur des exploitations sélectionnées et calibrés selon les normes d'exportation.",
         "company_card2_title": "Conditionnement & chaîne du froid",
         "company_card2_desc": "Récolte, calibrage et expédition sous contrôle continu garantissant fraîcheur et uniformité.",
         "company_card3_title": "Exportation fiable",
@@ -904,7 +897,7 @@ const translations = {
         "whatsapp_aria": "Discuter sur WhatsApp",
         "nav_gallery": "Galerie",
         "gallery_heading": "Visite visuelle et galerie des récoltes",
-        "gallery_subheading": "Un aperçu de nos vergers égyptiens, stations d'emballage certifiées et produits d'exportation",
+        "gallery_subheading": "Un aperçu de nos vergers égyptiens, stations d'emballage modernes et produits d'exportation",
         "gallery_filter_all": "Toutes les photos",
         "gallery_filter_farms": "Vergers & Récolte",
         "gallery_filter_packing": "Station & Qualité",
@@ -944,14 +937,12 @@ const translations = {
         "catalog_btn_quote": "Demander un devis",
         "catalog_btn_wa": "Demander sur WhatsApp",
         "catalog_overview_title": "Profil de l'entreprise et normes de qualité",
-        "catalog_overview_text": "AL-GAMEL est une société d'exportation agricole égyptienne approvisionnant les marchés mondiaux en agrumes, raisins sans pépins, mangues et légumes selon les normes GlobalG.A.P et ISO avec chaîne du froid continue.",
+        "catalog_overview_text": "AL-GAMEL est une société d'exportation agricole égyptienne approvisionnant les marchés mondiaux en agrumes, raisins sans pépins, mangues et légumes selon les normes internationales avec chaîne du froid continue.",
         "catalog_table_title": "Spécifications des produits et conditionnement",
         "catalog_col_product": "Produit et variétés",
         "catalog_col_sizes": "Calibres et tailles",
         "catalog_col_packaging": "Emballage et poids net",
         "catalog_col_container": "Chargement conteneur reefer",
-        "catalog_col_temp": "Température de transport",
-        "catalog_cert_title": "Contrôle qualité et documents d'exportation",
-        "catalog_cert_text": "Chaque expédition est inspectée par les autorités phytosanitaires et accompagnée du certificat phytosanitaire, certificat d'origine, connaissement et enregistreurs de température."
+        "catalog_col_temp": "Température de transport"
     }
 };
