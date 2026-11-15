@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AL-GAMEL | Official Export Produce Catalog 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+    <style>
+        :root {
+            --primary: #1a3d2a;
+            --accent: #28b485;
+            --accent-dark: #1f946c;
+            --gold: #d97706;
+            --bg-light: #f7fbf8;
+            --border: #d4e7dc;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lato', 'Cairo', sans-serif;
+            color: var(--text-main);
+            background: #eef5f0;
+            line-height: 1.6;
+            padding: 3rem 1.5rem;
+        }
+
+        .catalog-container {
+            max-width: 110rem;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 1.5rem 5rem rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        /* Top Action Bar (hidden on print) */
+        .catalog-actions-bar {
+            background: #11281c;
+            padding: 1.4rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            color: #ffffff;
+        }
+
+        .catalog-actions-bar a,
+        .catalog-actions-bar button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-family: inherit;
+            font-size: 1.4rem;
+            font-weight: 700;
+            padding: 0.8rem 1.8rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-back {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .btn-print {
+            background: #28b485;
+            color: #ffffff;
+            border: none;
+            box-shadow: 0 4px 14px rgba(40, 180, 133, 0.4);
+        }
+        .btn-print:hover {
+            background: #1f946c;
+            transform: translateY(-2px);
+        }
+
+        .btn-wa {
+            background: #25d366;
+            color: #ffffff;
+            border: none;
+        }
+        .btn-wa:hover {
+            background: #1eb956;
+            transform: translateY(-2px);
+        }
+
+        /* Header */
+        .catalog-header {
+            padding: 4rem 4rem 3rem;
+            border-bottom: 2px solid #edf4f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            background: linear-gradient(135deg, #f7fbf8 0%, #ffffff 100%);
+        }
+
+        .catalog-brand {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .catalog-logo {
+            height: 7rem;
+            width: auto;
+        }
+
+        .catalog-title {
+            font-size: 2.8rem;
+            color: var(--primary);
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .catalog-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        .catalog-header-badge {
+            text-align: right;
+            border-left: 2px solid var(--border);
+            padding-left: 2rem;
+        }
+
+        .catalog-header-badge strong {
+            display: block;
+            font-size: 1.8rem;
+            color: var(--gold);
+        }
+
+        .catalog-header-badge span {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+        }
+
+        /* Content Sections */
+        .catalog-content {
+            padding: 3.5rem 4rem;
+        }
+
+        .catalog-section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .catalog-section-title::before {
+            content: "";
+            display: inline-block;
+            width: 0.6rem;
+            height: 2.2rem;
+            background: var(--accent);
+            border-radius: 3px;
+        }
+
+        .catalog-overview-box {
+            background: #f1f8f4;
+            border-radius: 1.4rem;
+            padding: 2.2rem;
+            margin-bottom: 3.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .catalog-overview-box p {
+            font-size: 1.5rem;
+            color: #2d4536;
+            margin-bottom: 1.5rem;
+        }
+
+        .catalog-badges-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .catalog-badge-item {
+            background: #ffffff;
+            color: var(--primary);
+            border: 1px solid #c2e2cf;
+            padding: 0.6rem 1.4rem;
+            border-radius: 9999px;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        /* Tables */
+        .catalog-table-container {
+            overflow-x: auto;
+            margin-bottom: 3.5rem;
+            border: 1px solid var(--border);
+            border-radius: 1.4rem;
+            background: #ffffff;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 1.35rem;
+        }
+
+        .specs-table th {
+            background: #eaf5ee;
+            color: var(--primary);
+            font-weight: 800;
+            padding: 1.4rem 1.6rem;
+            border-bottom: 2px solid var(--border);
+            text-transform: uppercase;
+            font-size: 1.25rem;
+            letter-spacing: 0.04rem;
+        }
+
+        .specs-table td {
+            padding: 1.4rem 1.6rem;
+            border-bottom: 1px solid #edf4f0;
+            vertical-align: top;
+        }
+
+        .specs-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .specs-table tr:hover td {
+            background: #fcfefd;
+        }
+
+        .crop-header-cell {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.45rem;
+        }
+
+        /* Quality Standards Grid */
+        .quality-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .quality-card {
+            background: #fafdfb;
+            border: 1px solid var(--border);
+            border-radius: 1.2rem;
+            padding: 2rem;
+        }
+
+        .quality-card h4 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .quality-card p {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Catalog Footer */
+        .catalog-footer {
+            background: #f7fbf8;
+            border-top: 2px solid #edf4f0;
+            padding: 3rem 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .catalog-contact-item {
+            font-size: 1.4rem;
+            color: var(--primary);
+        }
+
+        .catalog-contact-item strong {
+            display: block;
+            color: #666;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        /* Print Media Styles */
+        @media print {
+            body {
+                background: #ffffff;
+                padding: 0;
+            }
+
+            .catalog-actions-bar {
+                display: none !important;
+            }
+
+            .catalog-container {
+                box-shadow: none;
+                border: none;
+                border-radius: 0;
+                max-width: 100%;
+            }
+
+            .catalog-header {
+                padding: 2rem 0;
+            }
+
+            .catalog-content {
+                padding: 2rem 0;
+            }
+
+            .specs-table th {
+                background: #f0f0f0 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .specs-table tr {
+                page-break-inside: avoid;
+            }
+
+            .quality-grid {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media only screen and (max-width: 56.25em) {
+            .catalog-header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 2.5rem 2rem;
+            }
+            .catalog-header-badge {
+                border-left: none;
+                padding-left: 0;
+                text-align: left;
+            }
+            .catalog-content {
+                padding: 2rem;
+            }
+            .quality-grid {
+                grid-template-columns: 1fr;
+            }
+            .catalog-footer {
+                padding: 2.5rem 2rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="catalog-container">
+        <!-- Action Bar (Hidden on print) -->
+        <div class="catalog-actions-bar">
+            <a href="index.html" class="btn-back">← Back to AL-GAMEL Website</a>
+            <div style="display: flex; gap: 1rem;">
+                <button type="button" class="btn-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+                <a href="https://wa.me/201024267088?text=Hello%20AL-GAMEL,%20I%20am%20inquiring%20about%20your%202026%20Export%20Produce%20Catalog" target="_blank" rel="noopener noreferrer" class="btn-wa">💬 Inquire via WhatsApp</a>
+            </div>
+        </div>
+
+        <!-- Catalog Header -->
+        <header class="catalog-header">
+            <div class="catalog-brand">
+                <img src="img/logo-green-2x.png" alt="AL-GAMEL" class="catalog-logo">
+                <div>
+                    <h1 class="catalog-title">AL-GAMEL Export Produce Catalog 2026</h1>
+                    <p class="catalog-subtitle">Egyptian Fresh Produce Export — Technical Specifications, Packaging &amp; Shipping</p>
+                </div>
+            </div>
+            <div class="catalog-header-badge">
+                <strong>Season 2026</strong>
+                <span>Global Export Standards</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="catalog-content">
+            <!-- Overview Box -->
+            <div class="catalog-overview-box">
+                <p><strong>AL-GAMEL</strong> is an Egyptian agricultural export company specializing in the sourcing, packing, and international distribution of premium fresh fruits and vegetables. We operate with strict cold-chain protocols and certified partner packhouses compliant with <strong>GlobalG.A.P, ISO, and BRC</strong> standards.</p>
+                <div class="catalog-badges-list">
+                    <span class="catalog-badge-item">🇪🇬 Origin: Egypt</span>
+                    <span class="catalog-badge-item">✓ Certified GlobalG.A.P Partners</span>
+                    <span class="catalog-badge-item">❄️ Reefer Cold-Chain Monitoring</span>
+                    <span class="catalog-badge-item">📦 EUR-Pallet 100x120 &amp; 80x120 cm</span>
+                    <span class="catalog-badge-item">🚢 Global Ports Delivery (FOB / CIF / CFR)</span>
+                </div>
+            </div>
+
+            <!-- Specifications Table -->
+            <h2 class="catalog-section-title">Fresh Produce Specifications &amp; Packing Matrix</h2>
+            <div class="catalog-table-container">
+                <table class="specs-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 20%;">Crop &amp; Varieties</th>
+                            <th style="width: 22%;">Export Calibers &amp; Sizes</th>
+                            <th style="width: 26%;">Packaging &amp; Net Weight</th>
+                            <th style="width: 18%;">40ft HC Reefer Load</th>
+                            <th style="width: 14%;">Storage Temp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="crop-header-cell">🍊 Valencia &amp; Navel Oranges</td>
+                            <td>Counts: 48, 56, 64, 72, 80, 88, 100, 113, 125</td>
+                            <td>15 kg Telescopic or Open Top cartons (16 kg gross) / 500 kg bins</td>
+                            <td>20 Pallets (1,600 cartons = 24 MT)</td>
+                            <td>+2°C to +4°C (RH 85-90%)</td>
+                        </tr>
+                        <tr>
+                            <td class="crop-header-cell">🍇 Seedless Grapes<br><small style="color: #666;">Flame, Superior, Crimson, Black</small></td>
+                            <td>16mm to 22mm+ berry diameter, Sugar 16-18° Brix</td>
+                            <td>4.5 kg loose cartons or 10 x 500g punnets with carry bags (5 kg net)</td>
+                            <td>20 Pallets (2,400 to 2,600 cartons = 12-13 MT)</td>
+                            <td>0°C to +1°C (RH 90-95%)</td>
+                        </tr>
+                        <tr>
+                            <td class="crop-header-cell">🥭 Egyptian Mangoes<br><small style="color: #666;">Keitt, Naomi, Owaisi</small></td>
+                            <td>Counts: 6, 7, 8, 9, 10, 12 per carton (300g to 800g/fruit)</td>
+                            <td>4 kg &amp; 5 kg open-top / telescopic export cartons</td>
+                            <td>20 Pallets (2,800 to 3,200 cartons = 12-14 MT)</td>
+                            <td>+10°C to +12°C</td>
+                        </tr>
+                        <tr>
+                            <td class="crop-header-cell">🍎 Wonderful Pomegranate</td>
+                            <td>Counts: 6, 7, 8, 9, 10, 12, 14 (300g to 600g+)</td>
+                            <td>4.5 kg &amp; 5 kg flat export cartons (plastic tray / foam net)</td>
+                            <td>20 Pallets (2,400 cartons = 11-12 MT)</td>
+                            <td>+5°C to +6°C</td>
+                        </tr>
+                        <tr>
+                            <td class="crop-header-cell">🍠 Beauregard Sweet Potatoes</td>
+                            <td>L1 (300-450g), L2 (450-600g), M (150-300g), S1 (80-150g)</td>
+                            <td>6 kg carton or 10 kg carton (washed, cured &amp; brushed)</td>
+                            <td>20 Pallets (2,200 to 2,400 cartons = 22-24 MT)</td>
+                            <td>+12°C to +14°C</td>
+                        </tr>
+                        <tr>
+                            <td class="crop-header-cell">🥔 Export Potatoes<br><small style="color: #666;">Spunta, Hermes, Rosetta</small></td>
+                            <td>35/55mm, 45/65mm, 55mm+ (clean skin, free of defects)</td>
+                            <td>10 kg &amp; 25 kg PP mesh bags or 1,250 kg jumbo bags</td>
+                            <td>20 Pallets (1,000 bags of 25kg = 25 MT)</td>
+                            <td>+4°C to +7°C</td>
+                        </tr>
+                        <tr>
+                            <td class="crop-header-cell">🧅 Golden &amp; Red Onions</td>
+                            <td>40/60mm, 50/70mm, 60/80mm, 70/90mm+</td>
+                            <td>10 kg &amp; 25 kg red/yellow woven mesh bags</td>
+                            <td>20 Pallets (1,000 bags of 25kg = 25 MT)</td>
+                            <td>0°C to +2°C (Dry ventilated)</td>
+                        </tr>
+                        <tr>
+                            <td class="crop-header-cell">🧄 Fresh &amp; Dry Garlic</td>
+                            <td>40mm, 45mm, 50mm, 55mm, 60mm+ (white / violet skin)</td>
+                            <td>5 kg cartons or 5 kg/10 kg mesh bags</td>
+                            <td>20 Pallets (24-25 MT)</td>
+                            <td>-1°C to 0°C</td>
+                        </tr>
+                        <tr>
+                            <td class="crop-header-cell">🥕 Fresh Egyptian Carrots</td>
+                            <td>Length: 15-20cm, Diameter: 25-40mm (hydro-cooled)</td>
+                            <td>5 kg &amp; 10 kg PE lined cartons or 1 kg pre-packs</td>
+                            <td>20 Pallets (24 MT)</td>
+                            <td>0°C to +1°C (RH 95%)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Quality & Shipping Standards -->
+            <h2 class="catalog-section-title">Quality Assurance &amp; Shipping Protocols</h2>
+            <div class="quality-grid">
+                <div class="quality-card">
+                    <h4>🌡️ Pre-Cooling &amp; Cold-Chain</h4>
+                    <p>All produce undergoes rapid pre-cooling (forced air or hydro-cooling) immediately following harvest to lock in cellular firmness, Brix sugars, and shelf stability.</p>
+                </div>
+                <div class="quality-card">
+                    <h4>📊 Digital Temperature Loggers</h4>
+                    <p>Every 40ft High Cube Reefer container is outfitted with dual calibrated USB/NFC temperature loggers to provide continuous temperature graphs from origin to destination.</p>
+                </div>
+                <div class="quality-card">
+                    <h4>📑 Official Phytosanitary Export Docs</h4>
+                    <p>Comprehensive export documentation provided with every shipment: Official Phytosanitary Certificate, Certificate of Origin, Clean on Board B/L, Invoice, and Packing List.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Catalog Footer -->
+        <footer class="catalog-footer">
+            <div class="catalog-contact-item">
+                <strong>Export Sales Desk</strong>
+                <span>+20 102 426 7088 (WhatsApp &amp; Calls)</span>
+            </div>
+            <div class="catalog-contact-item">
+                <strong>Official Email</strong>
+                <span>gamelmohmed4@gmail.com</span>
+            </div>
+            <div class="catalog-contact-item">
+                <strong>Company Location</strong>
+                <span>Egypt — Connecting Egyptian Agriculture with Global Markets</span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

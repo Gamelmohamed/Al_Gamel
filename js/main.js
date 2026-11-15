@@ -512,12 +512,77 @@
         });
     }
 
+    // Company Export Catalog Modal Controls
+    function initCatalog() {
+        const modal = document.getElementById("catalogModal");
+        if (!modal) return;
+
+        const openBtns = [
+            document.getElementById("heroCatalogBtn"),
+            document.getElementById("navCatalogBtn")
+        ].filter(Boolean);
+
+        const closeBtn = document.getElementById("catalogModalClose");
+        const backdrop = document.getElementById("catalogModalBackdrop");
+        const printBtn = document.getElementById("catalogPrintBtn");
+        const quoteBtn = document.getElementById("catalogQuoteBtn");
+
+        function openModal() {
+            modal.classList.add("is-open");
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeModal() {
+            modal.classList.remove("is-open");
+            modal.style.display = "none";
+            document.body.style.overflow = "";
+        }
+
+        openBtns.forEach((btn) => {
+            btn.addEventListener("click", function (e) {
+                e.preventDefault();
+                openModal();
+            });
+        });
+
+        if (closeBtn) closeBtn.addEventListener("click", closeModal);
+        if (backdrop) backdrop.addEventListener("click", closeModal);
+
+        if (printBtn) {
+            printBtn.addEventListener("click", function () {
+                window.open("catalog.html", "_blank");
+            });
+        }
+
+        if (quoteBtn) {
+            quoteBtn.addEventListener("click", function () {
+                closeModal();
+                const inquirySec = document.getElementById("inquiry");
+                if (inquirySec) {
+                    inquirySec.scrollIntoView({ behavior: "smooth" });
+                    setTimeout(() => {
+                        const nameInput = document.getElementById("name");
+                        if (nameInput) nameInput.focus();
+                    }, 500);
+                }
+            });
+        }
+
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && modal.classList.contains("is-open")) {
+                closeModal();
+            }
+        });
+    }
+
     // App Initialization (handles both loading and already-loaded DOM)
     function initApp() {
         const initialLang = getInitialLanguage();
         setLanguage(initialLang);
         initSeasonCalendar();
         initGallery();
+        initCatalog();
     }
 
     if (document.readyState === "loading") {

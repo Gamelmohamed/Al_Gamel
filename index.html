@@ -8,7 +8,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/style.css?v=2.3">
+        <link rel="stylesheet" href="css/style.css?v=2.4">
         <link rel="shortcut icon" type="image/png" href="img/favicon.png">
     </head>
     <body>
@@ -28,6 +28,7 @@
                             <li><a href="#produce" class="nav__link" data-i18n="nav_produce">Produce</a></li>
                             <li><a href="#calendar" class="nav__link" data-i18n="nav_calendar">Calendar</a></li>
                             <li><a href="#gallery" class="nav__link" data-i18n="nav_gallery">Gallery</a></li>
+                            <li><button type="button" class="nav__link nav__link--catalog" id="navCatalogBtn" data-i18n="nav_catalog">Catalog 📄</button></li>
                             <li><a href="#inquiry" class="nav__link nav__link--cta" data-i18n="nav_inquiry">Inquiry</a></li>
                         </ul>
                     </div>
@@ -82,6 +83,10 @@
                 <p class="hero__lead" data-i18n="hero_lead">Fruit and vegetables from Egypt — packed and shipped to global markets.</p>
                 <div class="hero__cta-group">
                     <a href="#inquiry" class="btn btn--primary" data-i18n="hero_cta">Request a quotation</a>
+                    <button type="button" class="btn btn--catalog" id="heroCatalogBtn">
+                        <span class="btn__icon" aria-hidden="true">📄</span>
+                        <span data-i18n="hero_catalog">Company Catalog (PDF)</span>
+                    </button>
                     <a href="#produce" class="btn btn--ghost" data-i18n="hero_explore">Explore Produce</a>
                 </div>
 
@@ -913,6 +918,7 @@
                             <li><a href="#company" data-i18n="nav_company">About Company</a></li>
                             <li><a href="#calendar" data-i18n="nav_calendar">Season Calendar</a></li>
                             <li><a href="#gallery" data-i18n="nav_gallery">Gallery</a></li>
+                            <li><a href="catalog.html" target="_blank" data-i18n="hero_catalog">Company Catalog (PDF)</a></li>
                             <li><a href="#oranges" data-i18n="company_card2_title">Packing &amp; Cold Chain</a></li>
                             <li><a href="#inquiry" data-i18n="nav_inquiry">Request Quotation</a></li>
                             <li><a href="#top" data-i18n="footer_back_top">Back to top ↑</a></li>
@@ -958,7 +964,147 @@
             </svg>
         </a>
 
-        <script src="js/translations.js?v=2.3"></script>
-        <script src="js/main.js?v=2.3"></script>
+        <!-- Company Export Catalog Modal -->
+        <div class="catalog-modal" id="catalogModal" role="dialog" aria-modal="true" aria-labelledby="catalogModalTitle" style="display: none;">
+            <div class="catalog-modal__backdrop" id="catalogModalBackdrop"></div>
+            <div class="catalog-modal__dialog">
+                <div class="catalog-modal__header">
+                    <div class="catalog-modal__brand">
+                        <img src="img/logo-green-2x.png" alt="AL-GAMEL" class="catalog-modal__logo">
+                        <div>
+                            <h2 class="catalog-modal__title" id="catalogModalTitle" data-i18n="catalog_modal_title">AL-GAMEL Fresh Produce Export Catalog 2026</h2>
+                            <p class="catalog-modal__subtitle" data-i18n="catalog_modal_subtitle">Official product specifications, export grades, packing standards, and shipping protocols</p>
+                        </div>
+                    </div>
+                    <button type="button" class="catalog-modal__close" id="catalogModalClose" aria-label="Close">&times;</button>
+                </div>
+
+                <!-- Top Quick Action Bar -->
+                <div class="catalog-modal__actions">
+                    <button type="button" class="btn-catalog-action btn-catalog-action--print" id="catalogPrintBtn">
+                        <span aria-hidden="true">🖨️</span>
+                        <span data-i18n="catalog_btn_print">Print / Save as PDF</span>
+                    </button>
+                    <a href="catalog.html" target="_blank" class="btn-catalog-action btn-catalog-action--view">
+                        <span aria-hidden="true">↗</span>
+                        <span>Full Page / PDF View</span>
+                    </a>
+                    <a href="https://wa.me/201024267088?text=Hello%20AL-GAMEL,%20I%20would%20like%20to%20inquire%20about%20your%202026%20Export%20Catalog" target="_blank" rel="noopener noreferrer" class="btn-catalog-action btn-catalog-action--wa">
+                        <span aria-hidden="true">💬</span>
+                        <span data-i18n="catalog_btn_wa">Inquire on WhatsApp</span>
+                    </a>
+                    <button type="button" class="btn-catalog-action btn-catalog-action--quote" id="catalogQuoteBtn">
+                        <span aria-hidden="true">📝</span>
+                        <span data-i18n="catalog_btn_quote">Request Quotation</span>
+                    </button>
+                </div>
+
+                <div class="catalog-modal__body">
+                    <!-- Overview Card -->
+                    <div class="catalog-card">
+                        <h3 class="catalog-card__title" data-i18n="catalog_overview_title">Company Profile &amp; Export Quality</h3>
+                        <p class="catalog-card__text" data-i18n="catalog_overview_text">AL-GAMEL is a specialized Egyptian agricultural exporter supplying international markets with premium citrus, seedless grapes, mangoes, and vegetables. We operate under strict GlobalG.A.P and ISO hygiene standards with end-to-end cold chain management.</p>
+                        <div class="catalog-badges">
+                            <span class="catalog-badge">🇪🇬 Origin: Egypt</span>
+                            <span class="catalog-badge">✓ GlobalG.A.P Certified</span>
+                            <span class="catalog-badge">❄️ Controlled Reefer +0°C to +12°C</span>
+                            <span class="catalog-badge">📦 EUR-Pallet 100x120 &amp; 80x120</span>
+                        </div>
+                    </div>
+
+                    <!-- Specifications Table -->
+                    <div class="catalog-table-wrapper">
+                        <h3 class="catalog-card__title" data-i18n="catalog_table_title">Product Specifications &amp; Packaging Matrix</h3>
+                        <div class="catalog-table-scroll">
+                            <table class="catalog-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n="catalog_col_product">Crop &amp; Variety</th>
+                                        <th data-i18n="catalog_col_sizes">Sizes / Calibers</th>
+                                        <th data-i18n="catalog_col_packaging">Packaging &amp; Net Weight</th>
+                                        <th data-i18n="catalog_col_container">Reefer Container Load</th>
+                                        <th data-i18n="catalog_col_temp">Storage Temp</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>🍊 Valencia &amp; Navel Oranges</strong></td>
+                                        <td>48, 56, 64, 72, 80, 88, 100, 113, 125</td>
+                                        <td>15 kg Telescopic / Open Top cartons (16 kg gross) or 500 kg bins</td>
+                                        <td>20 Pallets (1,600 cartons = 24 MT) / 40ft HC Reefer</td>
+                                        <td>+2°C to +4°C (RH 85-90%)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>🍇 Seedless Grapes</strong> (Flame, Superior, Crimson, Black)</td>
+                                        <td>16mm to 22mm+ berry diameter, 16-18° Brix</td>
+                                        <td>4.5 kg loose cartons or 10 x 500g punnets with carry bag (5 kg net)</td>
+                                        <td>20 Pallets (2,400 to 2,600 cartons = 12-13 MT)</td>
+                                        <td>0°C to +1°C (RH 90-95%)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>🥭 Egyptian Mangoes</strong> (Keitt, Naomi, Owaisi)</td>
+                                        <td>Counts: 6, 7, 8, 9, 10, 12 per carton (300g to 800g/fruit)</td>
+                                        <td>4 kg &amp; 5 kg open-top / telescopic export cartons</td>
+                                        <td>20 Pallets (2,800 to 3,200 cartons = 12-14 MT)</td>
+                                        <td>+10°C to +12°C</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>🍎 Wonderful Pomegranate</strong></td>
+                                        <td>Counts: 6, 7, 8, 9, 10, 12, 14 (300g to 600g+)</td>
+                                        <td>4.5 kg / 5 kg flat export cartons</td>
+                                        <td>20 Pallets (2,400 cartons = 11-12 MT)</td>
+                                        <td>+5°C to +6°C</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>🍠 Sweet Potatoes</strong> (Beauregard)</td>
+                                        <td>L1 (300-450g), L2 (450-600g), M (150-300g), S1 (80-150g)</td>
+                                        <td>6 kg carton or 10 kg carton (cured &amp; washed)</td>
+                                        <td>20 Pallets (2,200 to 2,400 cartons = 22-24 MT)</td>
+                                        <td>+12°C to +14°C</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>🥔 Export Potatoes</strong> (Spunta, Hermes, Rosetta)</td>
+                                        <td>35/55mm, 45/65mm, 55mm+</td>
+                                        <td>10 kg &amp; 25 kg PP mesh bags or 1,250 kg jumbo bags</td>
+                                        <td>20 Pallets (1,000 bags of 25kg = 25 MT)</td>
+                                        <td>+4°C to +7°C</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>🧅 Egyptian Onions</strong> (Golden &amp; Red)</td>
+                                        <td>40/60mm, 50/70mm, 60/80mm, 70/90mm+</td>
+                                        <td>10 kg &amp; 25 kg red/yellow woven mesh bags</td>
+                                        <td>20 Pallets (1,000 bags of 25kg = 25 MT)</td>
+                                        <td>0°C to +2°C (Dry ventilated)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>🧄 Fresh &amp; Dry Garlic</strong> (White &amp; Red)</td>
+                                        <td>40mm, 45mm, 50mm, 55mm, 60mm+</td>
+                                        <td>5 kg cartons or 5 kg/10 kg mesh bags</td>
+                                        <td>20 Pallets (24-25 MT)</td>
+                                        <td>-1°C to 0°C</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>🥕 Fresh Egyptian Carrots</strong></td>
+                                        <td>Length: 15-20cm, Diameter: 25-40mm (hydrocooled)</td>
+                                        <td>5 kg &amp; 10 kg PE lined cartons or 1 kg pre-packs</td>
+                                        <td>20 Pallets (24 MT)</td>
+                                        <td>0°C to +1°C (RH 95%)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Quality & Documentation Card -->
+                    <div class="catalog-card">
+                        <h3 class="catalog-card__title" data-i18n="catalog_cert_title">Quality Inspection &amp; Shipping Documents</h3>
+                        <p class="catalog-card__text" data-i18n="catalog_cert_text">Every export shipment is inspected by the Egyptian Ministry of Agriculture and accompanied by Phytosanitary Certificate, Certificate of Origin, Bill of Lading, Commercial Invoice, Packing List, and temperature recorder data loggers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/translations.js?v=2.4"></script>
+        <script src="js/main.js?v=2.4"></script>
     </body>
 </html>
