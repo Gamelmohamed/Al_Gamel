@@ -1,0 +1,6 @@
+# Robots.txt for AL-GAMEL Egyptian Fresh Produce Export
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://gamelmohamed.github.io/Al_Gamel/sitemap.xml

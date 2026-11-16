@@ -28,6 +28,16 @@
     const formStatus = document.getElementById("formStatus");
 
     function getInitialLanguage() {
+        try {
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlLang = urlParams.get("lang");
+            if (urlLang && LANG_DATA[urlLang]) {
+                return urlLang;
+            }
+        } catch (e) {
+            // URLSearchParams fallback
+        }
+
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved && LANG_DATA[saved]) {
             return saved;
